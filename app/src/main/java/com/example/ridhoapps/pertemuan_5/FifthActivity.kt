@@ -1,5 +1,6 @@
 package com.example.ridhoapps.pertemuan_5
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -25,14 +26,18 @@ class FifthActivity : AppCompatActivity() {
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
         }
-    }
 
+        binding.btnWebView.setOnClickListener {
+            // Berpindah dari FifthActivity ke WebViewActivity
+            val intentPindah = Intent(this@FifthActivity, WebViewActivity::class.java)
+            startActivity(intentPindah)
+        }
+    }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
         return true
     }
-
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
