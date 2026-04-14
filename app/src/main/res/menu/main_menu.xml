@@ -1,11 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item
         android:id="@+id/action_search"
-        android:title="Search"
         android:icon="@android:drawable/ic_menu_search"
+        android:title="Search"
         app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_sort"
+        android:title="Urutkan (Radio Button)"
+        app:showAsAction="never"> <menu>
+        <group android:checkableBehavior="single">
+            <item
+                android:id="@+id/sort_name"
+                android:title="Berdasarkan Nama"
+                android:checked="true" /> <item
+            android:id="@+id/sort_date"
+            android:title="Berdasarkan Tanggal" />
+        </group>
+    </menu>
+    </item>
+
+    <item
+        android:id="@+id/action_filter"
+        android:title="Filter Tampilan (Checkbox)"
+        app:showAsAction="never">
+
+        <menu>
+            <group android:checkableBehavior="all">
+                <item
+                    android:id="@+id/filter_image"
+                    android:title="Tampilkan Gambar"
+                    android:checked="true" />
+                <item
+                    android:id="@+id/filter_video"
+                    android:title="Tampilkan Video" />
+            </group>
+        </menu>
+    </item>
 
     <item
         android:id="@+id/action_settings"

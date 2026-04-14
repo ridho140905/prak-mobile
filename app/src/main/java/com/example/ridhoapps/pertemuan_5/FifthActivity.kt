@@ -45,6 +45,14 @@ class FifthActivity : AppCompatActivity() {
 
     // Mengatur aksi ketika tombol/menu di Toolbar ditekan
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        // --- 1. LOGIKA WAJIB UNTUK CHECKBOX & RADIO BUTTON ---
+        // Mengubah status centang saat item diklik
+        if (item.isCheckable) {
+            item.isChecked = !item.isChecked
+        }
+
+        // --- 2. MENANGANI AKSI KLIK SETIAP MENU ---
         return when (item.itemId) {
             // Jika tombol panah kiri (back) ditekan
             android.R.id.home -> {
@@ -56,6 +64,35 @@ class FifthActivity : AppCompatActivity() {
                 Toast.makeText(this, "Search Clicked", Toast.LENGTH_SHORT).show()
                 true
             }
+
+            // --- Menangkap klik dari Sub-menu Radio Button ---
+            R.id.sort_name -> {
+                Toast.makeText(this, "Diurutkan berdasarkan Nama", Toast.LENGTH_SHORT).show()
+                true
+            }
+            R.id.sort_date -> {
+                Toast.makeText(this, "Diurutkan berdasarkan Tanggal", Toast.LENGTH_SHORT).show()
+                true
+            }
+
+            // --- Menangkap klik dari Sub-menu Checkbox ---
+            R.id.filter_image -> {
+                if (item.isChecked) {
+                    Toast.makeText(this, "Gambar Ditampilkan", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "Gambar Disembunyikan", Toast.LENGTH_SHORT).show()
+                }
+                true
+            }
+            R.id.filter_video -> {
+                if (item.isChecked) {
+                    Toast.makeText(this, "Video Ditampilkan", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "Video Disembunyikan", Toast.LENGTH_SHORT).show()
+                }
+                true
+            }
+
             // Jika icon settings ditekan
             R.id.action_settings -> {
                 Toast.makeText(this, "Settings Clicked", Toast.LENGTH_SHORT).show()
