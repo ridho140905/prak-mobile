@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:text="WebView"
-                app:icon="@drawable/ic_arrow_back"
+                app:icon="@drawable/uc_add_box"
                 app:iconGravity="textStart" />
 
             <HorizontalScrollView
