@@ -2,6 +2,9 @@ package com.example.ridhoapps.pertemuan_5
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
+import android.webkit.WebChromeClient
+import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.enableEdgeToEdge
@@ -34,17 +37,51 @@ class WebViewActivity : AppCompatActivity() {
             setDisplayShowHomeEnabled(true)
         }
 
-        binding.webView.webViewClient = WebViewClient()
         binding.webView.settings.javaScriptEnabled = true
-        binding.webView.loadUrl("https://merdeka.com")
 
-        binding.webView.setOnScrollChangeListener { _, _, scrollY, _, oldScrollY ->
-            if (scrollY > oldScrollY) {
-                binding.appBar.setExpanded(false, true) // Sembunyikan saat scroll ke bawah
-            } else if (scrollY < oldScrollY) {
-                binding.appBar.setExpanded(true, true) // Tampilkan saat scroll ke atas
+        // Agar link yang diklik tetap di dalam aplikasi
+        binding.webView.webViewClient = WebViewClient()
+
+        // ========================================================
+        // IMPROVISASI VISUAL 1: PROGRESS BAR LOADING
+        // ========================================================
+        // WebChromeClient digunakan untuk mendeteksi seberapa jauh web sudah dimuat (0-100%)
+        binding.webView.webChromeClient = object : WebChromeClient() {
+            override fun onProgressChanged(view: WebView?, newProgress: Int) {
+                if (newProgress < 100) {
+                    // Jika belum 100%, munculkan garis loading dan update bar-nya
+                    binding.progressBar.visibility = View.VISIBLE
+                    binding.progressBar.progress = newProgress
+                } else {
+                    // Jika sudah 100%, sembunyikan garis loadingnya
+                    binding.progressBar.visibility = View.GONE
+                }
             }
         }
+
+        // ========================================================
+        // IMPROVISASI VISUAL 2: TOMBOL MENGAMBANG (FAB)
+        // ========================================================
+        binding.fabHome.setOnClickListener {
+            // Ketika tombol bulat diklik, paksa kembali ke halaman awal
+            binding.webView.loadUrl("https://merdeka.com")
+        }
+
+        // Muat web pertama kali
+        binding.webView.loadUrl("https://merdeka.com")
+
+        // Logika sembunyikan Toolbar saat scroll ke bawah
+        binding.webView.setOnScrollChangeListener { _, _, scrollY, _, oldScrollY ->
+            if (scrollY > oldScrollY) {
+                binding.appBar.setExpanded(false, true)
+                binding.fabHome.hide() // Sembunyikan FAB biar layar luas
+            } else if (scrollY < oldScrollY) {
+                binding.appBar.setExpanded(true, true)
+                binding.fabHome.show() // Munculkan FAB lagi
+            }
+        }
+
+        // Logika tombol back
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 if (binding.webView.canGoBack()) {
@@ -55,6 +92,7 @@ class WebViewActivity : AppCompatActivity() {
             }
         })
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
             onBackPressedDispatcher.onBackPressed()
