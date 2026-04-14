@@ -11,16 +11,19 @@
     <item
         android:id="@+id/action_sort"
         android:title="Urutkan (Radio Button)"
-        app:showAsAction="never"> <menu>
-        <group android:checkableBehavior="single">
-            <item
-                android:id="@+id/sort_name"
-                android:title="Berdasarkan Nama"
-                android:checked="true" /> <item
-            android:id="@+id/sort_date"
-            android:title="Berdasarkan Tanggal" />
-        </group>
-    </menu>
+        app:showAsAction="never">
+
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/sort_name"
+                    android:title="Berdasarkan Nama"
+                    android:checked="true" />
+                <item
+                    android:id="@+id/sort_date"
+                    android:title="Berdasarkan Tanggal" />
+            </group>
+        </menu>
     </item>
 
     <item

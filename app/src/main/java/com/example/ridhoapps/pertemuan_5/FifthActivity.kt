@@ -26,7 +26,7 @@ class FifthActivity : AppCompatActivity() {
             // sudah diatur otomatis oleh CollapsingToolbarLayout di XML
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
-            setHomeAsUpIndicator(R.drawable.ic_arrow_back)
+            setHomeAsUpIndicator(R.drawable.ic_arrow_back) // Ganti jika icon berbeda
         }
 
         // Aksi ketika tombol WebView ditekan
