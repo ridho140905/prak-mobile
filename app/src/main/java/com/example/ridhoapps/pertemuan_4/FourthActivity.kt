@@ -7,7 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.ridhoapps.MainActivity
+import com.example.ridhoapps.pertemuan_6.MainActivity
 import com.example.ridhoapps.R
 import com.example.ridhoapps.databinding.ActivityFourthBinding
 import com.example.ridhoapps.databinding.ActivityMainBinding
@@ -44,11 +44,11 @@ class FourthActivity : AppCompatActivity() {
         }
         binding.btnShowAlertDialog.setOnClickListener {
             MaterialAlertDialogBuilder(this)
-                .setTitle("Konfirmasi")
-                .setMessage("Apakah Anda yakin ingin melanjutkan?")
-                .setPositiveButton("Ya") { dialog, _ ->
-                    dialog.dismiss()
-                    Log.e("Info Dialog","Anda memilih Ya!")
+                        .setTitle("Konfirmasi")
+                        .setMessage("Apakah Anda yakin ingin melanjutkan?")
+                        .setPositiveButton("Ya") { dialog, _ ->
+                            dialog.dismiss()
+                            Log.e("Info Dialog","Anda memilih Ya!")
                 }
                 .setNegativeButton("Batal") { dialog, _ ->
                     dialog.dismiss()
