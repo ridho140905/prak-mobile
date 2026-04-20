@@ -12,7 +12,7 @@ import com.example.ridhoapps.R
 import com.example.ridhoapps.databinding.ActivityMainBinding
 import com.example.ridhoapps.pertemuan_4.FourthActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-
+import androidx.core.content.edit
 
 
 class MainActivity : AppCompatActivity() {
@@ -28,11 +28,15 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
         binding.btnlogout.setOnClickListener {
             MaterialAlertDialogBuilder(this)
                 .setTitle("Konfirmasi")
                 .setMessage("Apakah Anda yakin ingin logout?")
                 .setPositiveButton("Ya") { dialog, _ ->
+                    sharedPref.edit {
+                        clear()
+                    }
                     dialog.dismiss()
                     val intent = Intent(this, AuthActivity::class.java)
                     startActivity(intent)

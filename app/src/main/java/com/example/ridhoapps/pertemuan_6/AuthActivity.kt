@@ -12,6 +12,7 @@ import com.example.ridhoapps.pertemuan_6.MainActivity
 import com.example.ridhoapps.R
 import com.example.ridhoapps.databinding.ActivityAuthBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import androidx.core.content.edit
 
 class AuthActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAuthBinding
@@ -27,11 +28,25 @@ class AuthActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        //Kode ini harus selalu dipanggil saat butuh akses "user_pref"
+        val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
+
+        //Kondisi jika isLogin bernilai true
+        val isLogin = sharedPref.getBoolean("isLogin", false)
+        if (isLogin) {
+            //Panggil Intent untuk ke MainActivity
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
         binding.btnlogin.setOnClickListener {
             val inputNama = binding.inputNama.text.toString()
             val inputpassword = binding.inputpassword.text.toString()
 
             if (inputNama == inputpassword && inputpassword.isNotEmpty() && inputpassword.isNotEmpty()) {
+                sharedPref.edit {
+                    putBoolean("isLogin", true)
+                    putString("username", inputNama)
+                }
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             } else {
