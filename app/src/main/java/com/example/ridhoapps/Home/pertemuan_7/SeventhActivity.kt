@@ -1,6 +1,5 @@
-package com.example.ridhoapps.pertemuan_7
+package com.example.ridhoapps.Home.pertemuan_7
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +8,6 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.example.ridhoapps.R
 import com.example.ridhoapps.databinding.ActivitySeventhBinding
-import com.example.ridhoapps.pertemuan_6.MainActivity
 
 class SeventhActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySeventhBinding

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E8F5E9"
-    tools:context=".pertemuan_7.TigaFragment">
+    tools:context=".Home.pertemuan_7.TigaFragment">
 
     <TextView
         android:id="@+id/textViewTiga"

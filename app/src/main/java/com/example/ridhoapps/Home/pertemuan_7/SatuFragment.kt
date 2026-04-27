@@ -1,4 +1,4 @@
-package com.example.ridhoapps.pertemuan_7
+package com.example.ridhoapps.Home.pertemuan_7
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

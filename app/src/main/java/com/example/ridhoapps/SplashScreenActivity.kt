@@ -7,8 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
-import com.example.ridhoapps.pertemuan_6.AuthActivity
-import com.example.ridhoapps.pertemuan_6.MainActivity
+import com.example.ridhoapps.AuthActivity
+import com.example.ridhoapps.MainActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -29,7 +29,7 @@ class SplashScreenActivity : AppCompatActivity() {
         val isLogin = sharedPref.getBoolean("isLogin", false)
         if (isLogin) {
             //Panggil Intent untuk ke MainActivity
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, BaseActivity::class.java)
             startActivity(intent)
             finish()
         }

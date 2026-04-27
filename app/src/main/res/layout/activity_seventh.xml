@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".pertemuan_7.SeventhActivity">
+    tools:context=".Home.pertemuan_7.SeventhActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar2"
@@ -23,7 +23,7 @@
         android:id="@+id/btnfragment1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Frag 1"
+        android:text="Fragment 1"
         app:layout_constraintEnd_toStartOf="@+id/btnfragment2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +35,7 @@
         android:id="@+id/btnfragment2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Frag 2"
+        android:text="Fragment 2"
         app:layout_constraintEnd_toStartOf="@+id/btfragment3"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnfragment1"
@@ -46,7 +46,7 @@
         android:id="@+id/btfragment3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Frag 3"
+        android:text="Fragment 3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnfragment2"

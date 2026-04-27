@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFEBEE"
-    tools:context=".pertemuan_7.SatuFragment">
+    tools:context=".Home.pertemuan_7.SatuFragment">
 
     <TextView
         android:id="@+id/textViewSatu"

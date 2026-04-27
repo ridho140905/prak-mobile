@@ -1,4 +1,4 @@
-package com.example.ridhoapps.pertemuan_4
+package com.example.ridhoapps.Home.pertemuan_4
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,10 +7,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.ridhoapps.pertemuan_6.MainActivity
+import com.example.ridhoapps.MainActivity
 import com.example.ridhoapps.R
 import com.example.ridhoapps.databinding.ActivityFourthBinding
-import com.example.ridhoapps.databinding.ActivityMainBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 

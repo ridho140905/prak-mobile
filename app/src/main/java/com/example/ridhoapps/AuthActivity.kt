@@ -1,18 +1,16 @@
-package com.example.ridhoapps.pertemuan_6
+package com.example.ridhoapps
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.edit
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.ridhoapps.pertemuan_6.MainActivity
-import com.example.ridhoapps.R
+import com.example.ridhoapps.MainActivity
 import com.example.ridhoapps.databinding.ActivityAuthBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import androidx.core.content.edit
 
 class AuthActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAuthBinding
@@ -49,7 +47,7 @@ class AuthActivity : AppCompatActivity() {
                     putString("username", inputNama)
                     apply()
                 }
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, AuthActivity::class.java)
                 startActivity(intent)
             } else {
                 MaterialAlertDialogBuilder(this)

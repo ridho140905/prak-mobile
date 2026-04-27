@@ -1,4 +1,4 @@
-package com.example.ridhoapps.pertemuan_6
+package com.example.ridhoapps
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,18 +6,16 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.edit
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.ridhoapps.R
+import com.example.ridhoapps.Home.pertemuan_2.SecondActivity
+import com.example.ridhoapps.Home.pertemuan_3.ThirdActivity
+import com.example.ridhoapps.Home.pertemuan_4.FourthActivity
+import com.example.ridhoapps.Home.pertemuan_5.FifthActivity
+import com.example.ridhoapps.Home.pertemuan_7.SeventhActivity
 import com.example.ridhoapps.databinding.ActivityMainBinding
-import com.example.ridhoapps.pertemuan_4.FourthActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import androidx.core.content.edit
-import com.example.ridhoapps.pertemuan_2.SecondActivity
-import com.example.ridhoapps.pertemuan_3.ThirdActivity
-import com.example.ridhoapps.pertemuan_5.FifthActivity
-import com.example.ridhoapps.pertemuan_7.SeventhActivity
-
 
 class MainActivity : AppCompatActivity() {
 

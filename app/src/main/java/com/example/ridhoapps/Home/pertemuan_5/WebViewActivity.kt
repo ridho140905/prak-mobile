@@ -1,5 +1,6 @@
-package com.example.ridhoapps.pertemuan_5
+package com.example.ridhoapps.Home.pertemuan_5
 
+import android.R
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
@@ -94,7 +95,7 @@ class WebViewActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == android.R.id.home) {
+        if (item.itemId == R.id.home) {
             onBackPressedDispatcher.onBackPressed()
             return true
         }

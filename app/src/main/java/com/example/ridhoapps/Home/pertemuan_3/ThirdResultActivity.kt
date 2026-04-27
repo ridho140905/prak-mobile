@@ -1,4 +1,4 @@
-package com.example.ridhoapps.pertemuan_3
+package com.example.ridhoapps.Home.pertemuan_3
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge

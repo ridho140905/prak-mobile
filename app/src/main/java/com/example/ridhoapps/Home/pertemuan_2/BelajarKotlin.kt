@@ -1,4 +1,4 @@
-package com.example.ridhoapps.pertemuan_2
+package com.example.ridhoapps.Home.pertemuan_2
 
 fun main(){
     println("Hai rekan-rekan...")
