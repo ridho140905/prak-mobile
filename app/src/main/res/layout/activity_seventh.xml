@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".pertemuan_7.SeventhActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="0dp"
+        android:layout_height="62dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Tombol Fragment 1 -->
+    <Button
+        android:id="@+id/btnfragment1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Frag 1"
+        app:layout_constraintEnd_toStartOf="@+id/btnfragment2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Tombol Fragment 2 -->
+    <Button
+        android:id="@+id/btnfragment2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Frag 2"
+        app:layout_constraintEnd_toStartOf="@+id/btfragment3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnfragment1"
+        app:layout_constraintTop_toTopOf="@+id/btnfragment1" />
+
+    <!-- Tombol Fragment 3 -->
+    <Button
+        android:id="@+id/btfragment3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Frag 3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnfragment2"
+        app:layout_constraintTop_toTopOf="@+id/btnfragment1" />
+
+    <!-- FrameLayout (PERBAIKAN DI SINI) -->
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnfragment2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

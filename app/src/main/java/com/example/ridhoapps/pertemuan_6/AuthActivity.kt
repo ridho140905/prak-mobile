@@ -47,6 +47,7 @@ class AuthActivity : AppCompatActivity() {
                 sharedPref.edit {
                     putBoolean("isLogin", true)
                     putString("username", inputNama)
+                    apply()
                 }
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)

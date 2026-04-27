@@ -13,6 +13,10 @@ import com.example.ridhoapps.databinding.ActivityMainBinding
 import com.example.ridhoapps.pertemuan_4.FourthActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import androidx.core.content.edit
+import com.example.ridhoapps.pertemuan_2.SecondActivity
+import com.example.ridhoapps.pertemuan_3.ThirdActivity
+import com.example.ridhoapps.pertemuan_5.FifthActivity
+import com.example.ridhoapps.pertemuan_7.SeventhActivity
 
 
 class MainActivity : AppCompatActivity() {
@@ -44,12 +48,33 @@ class MainActivity : AppCompatActivity() {
                 }
                 .setNegativeButton("Batal") { dialog, _ ->
                     dialog.dismiss()
-                    Toast.makeText(this, "Anda Memilih Untuk Tidak Logout", Toast.LENGTH_SHORT).show()
-                    Log.e("Info Dialog","Anda memilih Tidak!")
+                    Toast.makeText(this, "Anda Memilih Untuk Tidak Logout", Toast.LENGTH_SHORT)
+                        .show()
+                    Log.e("Info Dialog", "Anda memilih Tidak!")
                 }
                 .show()
         }
+        binding.btnseventh.setOnClickListener {
+            val intent = Intent(this, SeventhActivity::class.java)
+            startActivity(intent)
 
+        }
+        binding.btnsecond.setOnClickListener {
+            val intent = Intent(this, SecondActivity::class.java)
+            startActivity(intent)
+
+        }
+        binding.btnthird.setOnClickListener {
+            val intent = Intent(this, ThirdActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnfourth.setOnClickListener {
+            val intent = Intent(this, FourthActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnfifth.setOnClickListener {
+            val intent = Intent(this, FifthActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
-

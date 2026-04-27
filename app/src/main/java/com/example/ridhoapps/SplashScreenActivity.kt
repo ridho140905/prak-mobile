@@ -31,6 +31,7 @@ class SplashScreenActivity : AppCompatActivity() {
             //Panggil Intent untuk ke MainActivity
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
         lifecycleScope.launch {
