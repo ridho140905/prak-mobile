@@ -47,7 +47,7 @@ class AuthActivity : AppCompatActivity() {
                     putString("username", inputNama)
                     apply()
                 }
-                val intent = Intent(this, AuthActivity::class.java)
+                val intent = Intent(this, BaseActivity::class.java)
                 startActivity(intent)
             } else {
                 MaterialAlertDialogBuilder(this)

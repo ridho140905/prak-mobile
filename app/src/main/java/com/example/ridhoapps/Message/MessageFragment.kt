@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.ridhoapps.R
 import com.example.ridhoapps.databinding.FragmentMessageBinding
 
 class MessageFragment : Fragment() {
@@ -14,16 +15,16 @@ class MessageFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val messageList = listOf(
-        MessageModel("Alya", "Halo! Apa kabar?", "https://avatar.iran.liara.run/public/1"),
-        MessageModel("Budi", "Sudah makan?", "https://avatar.iran.liara.run/public/2"),
-        MessageModel("Citra", "Jangan lupa tugasnya ya!", "https://avatar.iran.liara.run/public/3"),
-        MessageModel("Dika", "Besok kita rapat jam 9", "https://avatar.iran.liara.run/public/4"),
-        MessageModel("Eka", "Nice job kemarin!", "https://avatar.iran.liara.run/public/5"),
-        MessageModel("Fajar", "Lagi ngapain?", "https://avatar.iran.liara.run/public/6"),
-        MessageModel("Gita", "Boleh minta tolong?", "https://avatar.iran.liara.run/public/7"),
-        MessageModel("Hana", "Lihat email ya", "https://avatar.iran.liara.run/public/8"),
-        MessageModel("Irfan", "Oke noted", "https://avatar.iran.liara.run/public/9"),
-        MessageModel("Joko", "Sampai jumpa besok", "https://avatar.iran.liara.run/public/10")
+        MessageModel("Alya", "Halo! Apa kabar?", R.drawable.avatar_perempuan),
+        MessageModel("Budi", "Sudah makan?", R.drawable.avatar_laki),
+        MessageModel("Citra", "Jangan lupa tugasnya ya!", R.drawable.avatar_perempuan),
+        MessageModel("Dika", "Besok kita rapat jam 9", R.drawable.avatar_laki),
+        MessageModel("Eka", "Nice job kemarin!", R.drawable.avatar_perempuan),
+        MessageModel("Fajar", "Lagi ngapain?", R.drawable.avatar_laki),
+        MessageModel("Gita", "Boleh minta tolong?", R.drawable.avatar_perempuan),
+        MessageModel("Hana", "Lihat email ya", R.drawable.avatar_perempuan),
+        MessageModel("Irfan", "Oke noted", R.drawable.avatar_laki),
+        MessageModel("Joko", "Sampai jumpa besok", R.drawable.avatar_laki)
     )
 
     override fun onCreateView(

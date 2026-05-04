@@ -30,7 +30,8 @@ class MessageAdapter(
         val data = getItem(position)!!
 
         Glide.with(context)
-            .load(data.avatarUrl)
+            .load(data.avatarImage)
+            .circleCrop()
             .into(binding.avatarImg)
 
         binding.textSender.text = data.senderName
