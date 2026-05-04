@@ -1,8 +1,7 @@
 package com.example.ridhoapps
 
-import MessageFragment
+import com.example.ridhoapps.Message.MessageFragment
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
