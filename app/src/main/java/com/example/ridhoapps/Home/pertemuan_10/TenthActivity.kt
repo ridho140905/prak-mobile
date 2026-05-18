@@ -50,6 +50,7 @@ class TenthActivity : AppCompatActivity() {
                     val badge = tab.getOrCreateBadge()
                     badge.isVisible = true
                 }
+
                 1 -> {
                     tab.text = "Tab B"
                     tab.icon = ContextCompat.getDrawable(this@TenthActivity, R.drawable.ic_home)
@@ -57,9 +58,17 @@ class TenthActivity : AppCompatActivity() {
                     badge.isVisible = true
                     badge.number = 5
                 }
+
+                2 -> {
+                    tab.text = "Tab C"
+                    tab.icon = ContextCompat.getDrawable(this@TenthActivity, R.drawable.ic_home)
+                    val badge = tab.getOrCreateBadge()
+                    badge.isVisible = true
+                    badge.number = 5
+                }
             }
-        }.attach()
-    }
+            }.attach()
+        }
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressedDispatcher.onBackPressed()
