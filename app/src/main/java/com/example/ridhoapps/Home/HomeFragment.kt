@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
 import com.example.ridhoapps.AuthActivity
+import com.example.ridhoapps.Home.pertemuan_10.TenthActivity
 import com.example.ridhoapps.Home.pertemuan_2.SecondActivity
 import com.example.ridhoapps.Home.pertemuan_3.ThirdActivity
 import com.example.ridhoapps.Home.pertemuan_4.FourthActivity
@@ -30,13 +31,13 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        /** Ganti menjadi versi binding */
+    ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar2)
         (requireActivity() as AppCompatActivity).supportActionBar?.apply {
             title = "Home"
@@ -67,12 +68,10 @@ class HomeFragment : Fragment() {
         binding.btnseventh.setOnClickListener {
             val intent = Intent(requireContext(), SeventhActivity::class.java)
             startActivity(intent)
-
         }
         binding.btnsecond.setOnClickListener {
             val intent = Intent(requireContext(), SecondActivity::class.java)
             startActivity(intent)
-
         }
         binding.btnthird.setOnClickListener {
             val intent = Intent(requireContext(), ThirdActivity::class.java)
@@ -90,5 +89,14 @@ class HomeFragment : Fragment() {
             val intent = Intent(requireContext(), NinthActivity::class.java)
             startActivity(intent)
         }
+        binding.btnp10.setOnClickListener {
+            val intent = Intent(requireContext(), TenthActivity::class.java)
+            startActivity(intent)
+        }
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
+}
