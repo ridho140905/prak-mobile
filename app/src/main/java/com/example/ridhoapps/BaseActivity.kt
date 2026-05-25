@@ -24,6 +24,13 @@ class BaseActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0)
             insets
         }
+
+        // Menampilkan HomeFragment secara default saat aplikasi dibuka
+        if (savedInstanceState == null) {
+            replaceFragment(HomeFragment())
+            binding.bottomNavView.selectedItemId = R.id.home
+        }
+
         binding.bottomNavView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.home -> {
