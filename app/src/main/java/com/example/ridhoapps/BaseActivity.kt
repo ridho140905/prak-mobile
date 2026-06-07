@@ -9,6 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.example.ridhoapps.Home.HomeFragment
 import com.example.ridhoapps.More.MoreFragment
+import com.example.ridhoapps.Note.NotesFragment
 import com.example.ridhoapps.databinding.ActivityBaseBinding
 
 class BaseActivity : AppCompatActivity() {
@@ -45,6 +46,11 @@ class BaseActivity : AppCompatActivity() {
                     replaceFragment(MoreFragment())
                     true
                 }
+                R.id.notes -> {
+                    replaceFragment(NotesFragment())
+                    true
+                }
+                
                 else -> false // return false jika item tidak ada yang di klik
             }
         }

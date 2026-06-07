@@ -20,6 +20,7 @@ import com.example.ridhoapps.Home.pertemuan_4.FourthActivity
 import com.example.ridhoapps.Home.pertemuan_5.FifthActivity
 import com.example.ridhoapps.Home.pertemuan_7.SeventhActivity
 import com.example.ridhoapps.Home.pertemuan_9.NinthActivity
+import com.example.ridhoapps.Note.NoteFormActivity
 import com.example.ridhoapps.R
 import com.example.ridhoapps.data.api.CatFactApiClient
 import com.example.ridhoapps.databinding.FragmentHomeBinding
