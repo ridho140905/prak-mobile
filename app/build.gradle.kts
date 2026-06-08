@@ -58,6 +58,8 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    // library Zxing
+    implementation("com.google.zxing:core:3.5.2")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
