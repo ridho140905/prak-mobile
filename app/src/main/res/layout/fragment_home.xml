@@ -40,7 +40,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Baris Tombol Pertemuan yang Dirapikan -->
+        <!-- Baris Tombol Pertemuan -->
         <Button
             android:id="@+id/btnsecond"
             android:layout_width="wrap_content"
@@ -121,7 +121,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnninth" />
 
-        <!-- Card Cat Fact sesuai Desain Target -->
+        <Button
+            android:id="@+id/btnp13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Pertemuan 13"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnp10" />
+
+        <!-- Card Cat Fact -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cvCatFact"
             android:layout_width="0dp"
@@ -135,7 +145,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnninth"
+            app:layout_constraintTop_toBottomOf="@id/btnp13"
             app:layout_constraintVertical_bias="0.0">
 
             <LinearLayout

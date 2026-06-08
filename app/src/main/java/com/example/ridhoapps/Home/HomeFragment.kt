@@ -14,6 +14,7 @@ import androidx.core.content.edit
 import androidx.lifecycle.lifecycleScope
 import com.example.ridhoapps.AuthActivity
 import com.example.ridhoapps.Home.pertemuan_10.TenthActivity
+import com.example.ridhoapps.Home.pertemuan_13.ThirteenthActivity
 import com.example.ridhoapps.Home.pertemuan_2.SecondActivity
 import com.example.ridhoapps.Home.pertemuan_3.ThirdActivity
 import com.example.ridhoapps.Home.pertemuan_4.FourthActivity
@@ -30,27 +31,27 @@ import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
-    private val binding get() = _binding!!
+    private val binding get() = _binding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        return binding.root
+        return _binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         // Setup Toolbar
-        (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar2)
+        (requireActivity() as AppCompatActivity).setSupportActionBar(_binding?.toolbar2)
         (requireActivity() as AppCompatActivity).supportActionBar?.apply {
             title = "Home"
         }
 
         // PENTING: Setup Klik Tombol Refresh
-        binding.btnRefresh.setOnClickListener {
+        _binding?.btnRefresh?.setOnClickListener {
             loadCatFact()
         }
 
@@ -59,7 +60,7 @@ class HomeFragment : Fragment() {
 
         val sharedPref = requireContext().getSharedPreferences("user_pref", MODE_PRIVATE)
 
-        binding.btnlogout.setOnClickListener {
+        _binding?.btnlogout?.setOnClickListener {
             MaterialAlertDialogBuilder(requireContext())
                 .setTitle("Konfirmasi")
                 .setMessage("Apakah Anda yakin ingin logout?")
@@ -76,38 +77,45 @@ class HomeFragment : Fragment() {
         }
 
         // Setup tombol navigasi lainnya
-        binding.btnsecond.setOnClickListener {
-            startActivity(Intent(requireContext(), SecondActivity::class.java))
-        }
-        binding.btnthird.setOnClickListener {
-            startActivity(Intent(requireContext(), ThirdActivity::class.java))
-        }
-        binding.btnfourth.setOnClickListener {
-            startActivity(Intent(requireContext(), FourthActivity::class.java))
-        }
-        binding.btnfifth.setOnClickListener {
-            startActivity(Intent(requireContext(), FifthActivity::class.java))
-        }
-        binding.btnseventh.setOnClickListener {
-            startActivity(Intent(requireContext(), SeventhActivity::class.java))
-        }
-        binding.btnninth.setOnClickListener {
-            startActivity(Intent(requireContext(), NinthActivity::class.java))
-        }
-        binding.btnp10.setOnClickListener {
-            startActivity(Intent(requireContext(), TenthActivity::class.java))
+        _binding?.apply {
+            btnsecond.setOnClickListener {
+                startActivity(Intent(requireContext(), SecondActivity::class.java))
+            }
+            btnthird.setOnClickListener {
+                startActivity(Intent(requireContext(), ThirdActivity::class.java))
+            }
+            btnfourth.setOnClickListener {
+                startActivity(Intent(requireContext(), FourthActivity::class.java))
+            }
+            btnfifth.setOnClickListener {
+                startActivity(Intent(requireContext(), FifthActivity::class.java))
+            }
+            btnseventh.setOnClickListener {
+                startActivity(Intent(requireContext(), SeventhActivity::class.java))
+            }
+            btnninth.setOnClickListener {
+                startActivity(Intent(requireContext(), NinthActivity::class.java))
+            }
+            btnp10.setOnClickListener {
+                startActivity(Intent(requireContext(), TenthActivity::class.java))
+            }
+            btnp13.setOnClickListener {
+                startActivity(Intent(requireContext(), ThirteenthActivity::class.java))
+            }
         }
     }
 
     // Fungsi loadCatFact diletakkan mandiri di tingkat class
     private fun loadCatFact() {
-        lifecycleScope.launch {
+        // Gunakan viewLifecycleOwner agar coroutine berhenti saat fragment hancur
+        viewLifecycleOwner.lifecycleScope.launch {
             try {
-                binding.tvCatFact.text = "Mencari fakta kucing..."
+                _binding?.tvCatFact?.text = "Mencari fakta kucing..."
                 val response = CatFactApiClient.apiService.getCatFact()
-                binding.tvCatFact.text = "\"${response.fact}\""
+                // Update UI hanya jika binding masih tersedia
+                _binding?.tvCatFact?.text = "\"${response.fact}\""
             } catch (e: Exception) {
-                binding.tvCatFact.text = "Gagal mengambil fakta. Cek koneksi internet Anda."
+                _binding?.tvCatFact?.text = "Gagal mengambil fakta. Cek koneksi internet Anda."
                 Log.e("HomeFragment", "Error: ${e.message}")
             }
         }
