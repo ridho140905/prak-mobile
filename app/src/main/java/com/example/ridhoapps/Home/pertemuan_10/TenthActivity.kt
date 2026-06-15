@@ -1,18 +1,33 @@
 package com.example.ridhoapps.Home.pertemuan_10
 
+import android.Manifest
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.ridhoapps.R
 import com.example.ridhoapps.databinding.ActivityTenthBinding
+import com.example.ridhoapps.utils.NotificationHelper
+import com.example.ridhoapps.utils.PermissionHelper
+import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
 class TenthActivity : AppCompatActivity() {
     private lateinit var binding: ActivityTenthBinding
+
+    private val notificationPermissionLauncher =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+            if (isGranted) {
+                Toast.makeText(this, "Notifikasi diizinkan", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Notifikasi ditolak", Toast.LENGTH_SHORT).show()
+            }
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +39,17 @@ class TenthActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        // Request Permission
+        if (PermissionHelper.isNotificationPermissionRequired()) {
+            val permission = Manifest.permission.POST_NOTIFICATIONS
+            if (!PermissionHelper.hasPermission(this, permission)) {
+                PermissionHelper.requestPermission(
+                    notificationPermissionLauncher,
+                    permission
+                )
+            }
         }
 
         // Mengaktifkan Toolbar custom
@@ -67,8 +93,28 @@ class TenthActivity : AppCompatActivity() {
                     badge.number = 5
                 }
             }
-            }.attach()
-        }
+        }.attach()
+
+        // Listener untuk notifikasi saat pindah tab
+        binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                // Sekarang Intent mengarah ke TenthActivity sendiri
+                val intent = Intent(this@TenthActivity, TenthActivity::class.java).apply {
+                    flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
+                }
+
+                NotificationHelper.showNotification(
+                    this@TenthActivity,
+                    "Info Tab",
+                    "Anda sedang melihat ${tab?.text}",
+                    intent
+                )
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {}
+            override fun onTabReselected(tab: TabLayout.Tab?) {}
+        })
+    }
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressedDispatcher.onBackPressed()
